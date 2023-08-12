@@ -39,8 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
-<!-- HTML code for the login form -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
