@@ -10,20 +10,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $targetDir = "uploads/";
         $targetFile = $targetDir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
-
-        // Check file size, file format, etc.
+        
         $fileName = $_FILES["fileToUpload"]["name"];
         $fileSize = $_FILES["fileToUpload"]["size"];
         $fileType = $_FILES["fileToUpload"]["type"];
 
-        // Check file size limit (2GB)
-        $maxFileSize = 2 * 1024 * 1024 * 1024; // 2GB in bytes
+        $maxFileSize = 2 * 1024 * 1024 * 1024;
         if ($fileSize > $maxFileSize) {
             $uploadOk = 0;
         }
 
         if ($uploadOk) {
-            // Make sure to include your database connection settings here
             $servername = "localhost";
             $db_username = "root"; // Replace with your DB username
             $db_password = "";     // Replace with your DB password
@@ -50,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 exit();
             }
 
-            // Check if the file already exists for the user
+     
             $fileExistsQuery = "SELECT id FROM uploaded_files WHERE user_id='$userId' AND file_name='$fileName'";
             $fileExistsResult = $conn->query($fileExistsQuery);
 
@@ -91,10 +88,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>File Upload</title>
-    <!-- Include your CSS and JavaScript files here -->
 </head>
 <body>
-    <!-- Your HTML content here -->
 
     <script>
         // Display a JavaScript alert with the file uploaded message
