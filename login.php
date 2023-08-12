@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-// Check if the user is already logged in, redirect to index.html if true
+
 if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === true) {
     header("Location: index.php");
     exit();
 }
 
-// Process login form submission and validate credentials
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
-<!-- Rest of your login form HTML code -->
+
 
 <!-- HTML code for the login form -->
 <!DOCTYPE html>
